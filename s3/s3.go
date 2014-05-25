@@ -24,9 +24,7 @@ func (d *Driver) Open(source string) (driver.Bucket, error) {
 	c := s3.New(aws.Auth{
 		AccessKey: flds["key"],
 		SecretKey: flds["secret"],
-	}, aws.Region{
-		S3Endpoint: flds["endpoint"],
-	})
+	}, aws.Regions[flds["region"]])
 
 	return &Bucket{
 		Bucket: c.Bucket(flds["bucket"]),
