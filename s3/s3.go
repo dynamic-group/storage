@@ -3,7 +3,9 @@
 package s3
 
 import (
+	"net/url"
 	"strings"
+	"time"
 
 	"github.com/dynamic-design/storage"
 	"github.com/dynamic-design/storage/driver"
@@ -47,6 +49,14 @@ func (b *Bucket) Open(name string) (driver.File, error) {
 		name: name,
 		mode: 0,
 	}, nil
+}
+
+func (b *Bucket) URL(path string) (*url.URL, error) {
+	return url.Parse(b.Bucket.URL(path))
+}
+
+func (b *Bucket) SignedURL(path string, expires time.Time) (*url.URL, error) {
+	return url.Parse(b.Bucket.SignedURL(path, expires))
 }
 
 func init() {

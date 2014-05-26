@@ -3,7 +3,9 @@
 package driver
 
 import (
+	"net/url"
 	"os"
+	"time"
 )
 
 type Driver interface {
@@ -13,6 +15,9 @@ type Driver interface {
 type Bucket interface {
 	Create(name string) (File, error)
 	Open(name string) (File, error)
+
+	URL(path string) (*url.URL, error)
+	SignedURL(path string, expires time.Time) (*url.URL, error)
 }
 
 type File interface {

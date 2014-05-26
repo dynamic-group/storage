@@ -3,8 +3,10 @@
 package disk
 
 import (
+	"net/url"
 	"os"
 	"path"
+	"time"
 
 	"github.com/dynamic-design/storage"
 	"github.com/dynamic-design/storage/driver"
@@ -26,6 +28,14 @@ func (b *Bucket) Create(name string) (driver.File, error) {
 
 func (b *Bucket) Open(name string) (driver.File, error) {
 	return os.Open(path.Join(b.base, name))
+}
+
+func (b *Bucket) URL(path string) (*url.URL, error) {
+	panic("unimplemented")
+}
+
+func (b *Bucket) SignedURL(path string, expires time.Time) (*url.URL, error) {
+	panic("unimplemented")
 }
 
 func init() {

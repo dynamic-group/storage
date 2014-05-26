@@ -12,7 +12,7 @@ import (
 )
 
 func ExampleFile() {
-	b, err := storage.Open("s3", "key= secret= bucket= endpoint=")
+	b, err := storage.Open("s3", "key=AKIAIEXPRCEXGMUEMY4A secret=50qzh2HoqGCLFc8tcvIVRPYjl4VBYqzvSHaxxQsF bucket=uploadservice-test region=ap-southeast-1")
 	catch(err)
 
 	f, err := b.Create("glados.txt")
