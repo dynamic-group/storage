@@ -7,6 +7,8 @@ import (
 	"io"
 	"mime"
 	"os"
+	"path"
+	"time"
 
 	"launchpad.net/goamz/s3"
 )
@@ -47,7 +49,20 @@ func (f *File) Read(b []byte) (n int, err error) {
 }
 
 func (f *File) Readdir(n int) (fi []os.FileInfo, err error) {
-	panic("unimplemented")
+	resp, err := f.b.List(f.name, "/", "", 0)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, key := range resp.Contents {
+		fi = append(fi, &FileInfo{
+			name: key.Key,
+			dir:  false,
+			size: key.Size,
+		})
+	}
+
+	return fi, nil
 }
 
 func (f *File) Stat() (fi os.FileInfo, err error) {
@@ -56,4 +71,35 @@ func (f *File) Stat() (fi os.FileInfo, err error) {
 
 func (f *File) Write(b []byte) (n int, err error) {
 	return f.buf.Write(b)
+}
+
+type FileInfo struct {
+	name    string
+	dir     bool
+	size    int64
+	modTime time.Time
+}
+
+func (fi *FileInfo) Name() string {
+	return path.Base(fi.name)
+}
+
+func (fi *FileInfo) Size() int64 {
+	return fi.size
+}
+
+func (fi *FileInfo) Mode() os.FileMode {
+	panic("unimplemented")
+}
+
+func (fi *FileInfo) ModTime() time.Time {
+	return fi.modTime
+}
+
+func (fi *FileInfo) IsDir() bool {
+	return fi.dir
+}
+
+func (fi *FileInfo) Sys() interface{} {
+	return nil
 }
