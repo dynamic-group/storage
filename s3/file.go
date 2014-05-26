@@ -5,6 +5,7 @@ package s3
 import (
 	"bytes"
 	"io"
+	"mime"
 	"os"
 
 	"launchpad.net/goamz/s3"
@@ -28,7 +29,7 @@ func (f *File) Close() error {
 	if f.mode == 0 {
 		return f.rc.Close()
 	} else {
-		return f.b.PutReader(f.name, &f.buf, int64(f.buf.Len()), "", s3.PublicReadWrite)
+		return f.b.PutReader(f.name, &f.buf, int64(f.buf.Len()), mime.TypeByExtension(f.name), s3.Private)
 	}
 }
 

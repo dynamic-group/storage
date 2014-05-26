@@ -3,8 +3,6 @@
 package s3
 
 import (
-	// "os"
-	// "path"
 	"strings"
 
 	"github.com/dynamic-design/storage"
