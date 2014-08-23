@@ -15,6 +15,7 @@ type Driver interface {
 type Bucket interface {
 	Create(name string) (File, error)
 	Open(name string) (File, error)
+	Delete(path string) error
 
 	URL(path string) (*url.URL, error)
 	SignedURL(path string, expires time.Time) (*url.URL, error)

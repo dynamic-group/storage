@@ -51,6 +51,10 @@ func (b *Bucket) Open(name string) (driver.File, error) {
 	}, nil
 }
 
+func (b *Bucket) Delete(path string) error {
+	return b.Del(path)
+}
+
 func (b *Bucket) URL(path string) (*url.URL, error) {
 	return url.Parse(b.Bucket.URL(path))
 }
