@@ -9,8 +9,8 @@ import (
 
 	"github.com/dynamic-design/storage"
 	"github.com/dynamic-design/storage/driver"
-	"launchpad.net/goamz/aws"
-	"launchpad.net/goamz/s3"
+	"github.com/mitchellh/goamz/aws"
+	"github.com/mitchellh/goamz/s3"
 )
 
 type Driver struct{}

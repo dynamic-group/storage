@@ -10,7 +10,7 @@ import (
 	"path"
 	"time"
 
-	"launchpad.net/goamz/s3"
+	"github.com/mitchellh/goamz/s3"
 )
 
 type File struct {
