@@ -8,8 +8,8 @@ import (
 	"path"
 	"time"
 
-	"github.com/dynamic-design/storage"
-	"github.com/dynamic-design/storage/driver"
+	"github.com/dynamic-group/storage"
+	"github.com/dynamic-group/storage/driver"
 )
 
 const (

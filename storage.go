@@ -6,7 +6,7 @@ package storage
 import (
 	"fmt"
 
-	"github.com/dynamic-design/storage/driver"
+	"github.com/dynamic-group/storage/driver"
 )
 
 var drivers = make(map[string]driver.Driver)

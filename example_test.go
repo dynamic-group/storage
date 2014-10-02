@@ -11,9 +11,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dynamic-design/storage"
-	_ "github.com/dynamic-design/storage/disk"
-	_ "github.com/dynamic-design/storage/s3"
+	"github.com/dynamic-group/storage"
+	_ "github.com/dynamic-group/storage/disk"
+	_ "github.com/dynamic-group/storage/s3"
 )
 
 var (

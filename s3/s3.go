@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dynamic-design/storage"
-	"github.com/dynamic-design/storage/driver"
+	"github.com/dynamic-group/storage"
+	"github.com/dynamic-group/storage/driver"
 	"github.com/mitchellh/goamz/aws"
 	"github.com/mitchellh/goamz/s3"
 )

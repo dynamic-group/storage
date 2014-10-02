@@ -6,22 +6,22 @@ Storage is a Go package that provides a single interface for Amazon S3 and Googl
 
 Install Storage using the go get command:
 
-    $ go get github.com/dynamic-design/storage
+    $ go get github.com/dynamic-group/storage
 
 Install one (or more) adapters:
 
     # Amazon S3
-    $ github.com/dynamic-design/storage/s3
+    $ github.com/dynamic-group/storage/s3
 
     # Google Cloud Storage
-    $ github.com/dynamic-design/storage/gcs
+    $ github.com/dynamic-group/storage/gcs
 
     # Local Disk
-    $ github.com/dynamic-design/storage/disk
+    $ github.com/dynamic-group/storage/disk
 
 ## Documentation
 
-- [Reference](http://godoc.org/github.com/dynamic-design/storage)
+- [Reference](http://godoc.org/github.com/dynamic-group/storage)
 
 ## Contributing
 
